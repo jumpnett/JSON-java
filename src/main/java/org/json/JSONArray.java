@@ -25,6 +25,7 @@ package org.json;
  */
 
 import java.io.IOException;
+import java.io.Serializable;
 import java.io.StringWriter;
 import java.io.Writer;
 import java.lang.reflect.Array;
@@ -64,7 +65,9 @@ import java.util.Map;
  * @author JSON.org
  * @version 2016-08/15
  */
-public class JSONArray implements Iterable<Object> {
+public class JSONArray implements Iterable<Object>, Serializable {
+
+	private static final long serialVersionUID = 20170508L;
 
 	/**
 	 * The arrayList where the JSONArray's properties are kept.
@@ -222,7 +225,7 @@ public class JSONArray implements Iterable<Object> {
 
 	/**
 	 * Get the enum value associated with an index.
-	 * 
+	 *
 	 * @param clazz
 	 *            The type of enum to retrieve.
 	 * @param index
@@ -512,7 +515,7 @@ public class JSONArray implements Iterable<Object> {
 
 	/**
 	 * Get the enum value associated with a key.
-	 * 
+	 *
 	 * @param clazz
 	 *            The type of enum to retrieve.
 	 * @param index
@@ -525,7 +528,7 @@ public class JSONArray implements Iterable<Object> {
 
 	/**
 	 * Get the enum value associated with a key.
-	 * 
+	 *
 	 * @param clazz
 	 *            The type of enum to retrieve.
 	 * @param index
@@ -888,19 +891,19 @@ public class JSONArray implements Iterable<Object> {
 	/**
 	 * Creates a JSONPointer using an initialization string and tries to match it to an item within this JSONArray. For example, given a JSONArray initialized
 	 * with this document:
-	 * 
+	 *
 	 * <pre>
 	 * [
 	 *     {"b":"c"}
 	 * ]
 	 * </pre>
-	 * 
+	 *
 	 * and this JSONPointer string:
-	 * 
+	 *
 	 * <pre>
 	 * "/0/b"
 	 * </pre>
-	 * 
+	 *
 	 * Then this method will return the String "c" A JSONPointerException may be thrown from code called by this method.
 	 *
 	 * @param jsonPointer
@@ -914,19 +917,19 @@ public class JSONArray implements Iterable<Object> {
 	/**
 	 * Uses a uaer initialized JSONPointer and tries to match it to an item whithin this JSONArray. For example, given a JSONArray initialized with this
 	 * document:
-	 * 
+	 *
 	 * <pre>
 	 * [
 	 *     {"b":"c"}
 	 * ]
 	 * </pre>
-	 * 
+	 *
 	 * and this JSONPointer:
-	 * 
+	 *
 	 * <pre>
 	 * "/0/b"
 	 * </pre>
-	 * 
+	 *
 	 * Then this method will return the String "c" A JSONPointerException may be thrown from code called by this method.
 	 *
 	 * @param jsonPointer
@@ -939,7 +942,7 @@ public class JSONArray implements Iterable<Object> {
 
 	/**
 	 * Queries and returns a value from this object using {@code jsonPointer}, or returns null if the query fails due to a missing key.
-	 * 
+	 *
 	 * @param jsonPointer
 	 *            the string representation of the JSON pointer
 	 * @return the queried value or {@code null}
@@ -952,7 +955,7 @@ public class JSONArray implements Iterable<Object> {
 
 	/**
 	 * Queries and returns a value from this object using {@code jsonPointer}, or returns null if the query fails due to a missing key.
-	 * 
+	 *
 	 * @param The
 	 *            JSON pointer
 	 * @return the queried value or {@code null}

@@ -25,6 +25,7 @@ package org.json;
  */
 
 import java.io.IOException;
+import java.io.Serializable;
 import java.io.StringWriter;
 import java.io.Writer;
 import java.lang.reflect.Field;
@@ -77,7 +78,10 @@ import java.util.Set;
  * @author JSON.org
  * @version 2016-08-15
  */
-public class JSONObject {
+public class JSONObject implements Serializable {
+
+	private static final long serialVersionUID = 20170508L;
+
 	/**
 	 * JSONObject.NULL is equivalent to the value that JavaScript calls null, whilst Java's null is equivalent to the value that JavaScript calls undefined.
 	 */
@@ -422,7 +426,7 @@ public class JSONObject {
 
 	/**
 	 * Get the enum value associated with a key.
-	 * 
+	 *
 	 * @param clazz
 	 *            The type of enum to retrieve.
 	 * @param key
@@ -781,7 +785,7 @@ public class JSONObject {
 
 	/**
 	 * Get the enum value associated with a key.
-	 * 
+	 *
 	 * @param clazz
 	 *            The type of enum to retrieve.
 	 * @param key
@@ -794,7 +798,7 @@ public class JSONObject {
 
 	/**
 	 * Get the enum value associated with a key.
-	 * 
+	 *
 	 * @param clazz
 	 *            The type of enum to retrieve.
 	 * @param key
@@ -1231,21 +1235,21 @@ public class JSONObject {
 	/**
 	 * Creates a JSONPointer using an intialization string and tries to match it to an item within this JSONObject. For example, given a JSONObject initialized
 	 * with this document:
-	 * 
+	 *
 	 * <pre>
 	 * {
 	 *     "a":{"b":"c"}
 	 * }
 	 * </pre>
-	 * 
+	 *
 	 * and this JSONPointer string:
-	 * 
+	 *
 	 * <pre>
 	 * "/a/b"
 	 * </pre>
-	 * 
+	 *
 	 * Then this method will return the String "c". A JSONPointerException may be thrown from code called by this method.
-	 * 
+	 *
 	 * @param jsonPointer
 	 *            string that can be used to create a JSONPointer
 	 * @return the item matched by the JSONPointer, otherwise null
@@ -1257,21 +1261,21 @@ public class JSONObject {
 	/**
 	 * Uses a uaer initialized JSONPointer and tries to match it to an item within this JSONObject. For example, given a JSONObject initialized with this
 	 * document:
-	 * 
+	 *
 	 * <pre>
 	 * {
 	 *     "a":{"b":"c"}
 	 * }
 	 * </pre>
-	 * 
+	 *
 	 * and this JSONPointer:
-	 * 
+	 *
 	 * <pre>
 	 * "/a/b"
 	 * </pre>
-	 * 
+	 *
 	 * Then this method will return the String "c". A JSONPointerException may be thrown from code called by this method.
-	 * 
+	 *
 	 * @param jsonPointer
 	 *            string that can be used to create a JSONPointer
 	 * @return the item matched by the JSONPointer, otherwise null
@@ -1282,7 +1286,7 @@ public class JSONObject {
 
 	/**
 	 * Queries and returns a value from this object using {@code jsonPointer}, or returns null if the query fails due to a missing key.
-	 * 
+	 *
 	 * @param jsonPointer
 	 *            the string representation of the JSON pointer
 	 * @return the queried value or {@code null}
@@ -1295,7 +1299,7 @@ public class JSONObject {
 
 	/**
 	 * Queries and returns a value from this object using {@code jsonPointer}, or returns null if the query fails due to a missing key.
-	 * 
+	 *
 	 * @param The
 	 *            JSON pointer
 	 * @return the queried value or {@code null}
